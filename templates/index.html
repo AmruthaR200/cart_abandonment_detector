@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🛍️ Cart Abandonment Detector</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #121212, #1e1e1e);
+      color: #fff;
+    }
+
+    nav {
+      background-color: #222;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #0ef;
+    }
+
+    .content {
+      padding: 100px 20px 60px;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #0ef;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form {
+      background-color: #2c2c2c;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 8px 16px rgba(0, 255, 255, 0.2);
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    input[type="number"] {
+      margin: 10px 0;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .button-group {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 18px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .predict-btn {
+      background-color: #0ef;
+      color: #000;
+    }
+
+    .predict-btn:hover {
+      background-color: #0cc;
+    }
+
+    .clear-btn {
+      background-color: #f00;
+      color: #fff;
+    }
+
+    .clear-btn:hover {
+      background-color: #c00;
+    }
+
+    .result {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #0ef;
+
+      .section-content {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: white;
+}
+ul {
+  list-style-type: disc;
+}
+    }
+    .about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+}
+
+.about-content {
+  max-width: 900px;
+}
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 28px;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME Section -->
+  <div id="home" class="content">
+    <h2>🛍️ Cart Abandonment Prediction</h2>
+    <form method="POST" action="/">
+      <input type="number" name="time" placeholder="Time on site (mins)" step="0.1" required><br>
+      <input type="number" name="pages" placeholder="Pages viewed" required><br>
+      <input type="number" name="value" placeholder="Cart value ($)" step="0.1" required><br>
+
+      <div class="button-group">
+        <button type="submit" name="action" value="predict" class="predict-btn">🔍 Predict</button>
+        <button type="submit" name="action" value="clear" class="clear-btn">♻️ Reset</button>
+      </div>
+    </form>
+
+    {% if result %}
+      <div class="result">
+        Prediction: {{ result }}
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <h2>About Us</h2>
+      <p><strong>Project Title:</strong> 🛍️ Cart Abandonment Detector Using Machine Learning</p>
+      <p><strong>Objective:</strong> To develop a machine learning-based web application that predicts the likelihood of a user abandoning their shopping cart in an e-commerce platform.</p>
+      <p><strong>Problem Statement:</strong> Shopping cart abandonment is a major issue in e-commerce. Our goal is to detect this behavior early using user interaction data, enabling businesses to take proactive actions like sending reminders or offering discounts.</p>
+      <p><strong>Solution:</strong> The system takes user behavior input like time on site, pages viewed, and cart value, and uses a trained ML model to predict whether the cart will be abandoned.</p>
+      <p><strong>Modules:</strong></p>
+      <p><strong>Frontend:</strong> Dark-themed UI with form and smooth navigation</p>
+      <p><strong>Backend:</strong> Flask app that handles requests and serves predictions</p>
+      <p><strong>ML Model:</strong> Classification algorithm trained to detect abandonment patterns</p>
+      <p><strong>Deployment:</strong> Can be hosted locally or on platforms like Heroku</p>
+      <p><strong>Tech Stack:</strong> HTML, CSS, Flask, Python, Scikit-learn, Jupyter Notebook</p>
+      <p><strong>Outcome:</strong> A practical solution that helps improve conversion rates by predicting user intentions in real-time.</p>
+    </div>
+  </section>
+  
+  
+
+
+  <!-- CONTACT Section -->
+  <div id="contact" class="content">
+    <h2>📬 Contact</h2>
+    <p>
+      Email: support@cart-detector.com<br>
+      Phone: +1 234 567 8901<br>
+      Address: 123 AI Avenue, Tech City, USA
+    </p>
+  </div>
+
+</body>
+</html>
