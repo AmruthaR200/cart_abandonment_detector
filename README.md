@@ -116,13 +116,14 @@ Click the **Predict** button.
 
 ```bash
 cart-abandonment-detector/
+├── cart_data.csv
+├── generate_data.py
 ├── train_model.py        # Trains the Random Forest classifier
 ├── app.py                # Flask backend server
 ├── model.pkl             # Saved trained model
 ├── templates/
 │   └── index.html        # Frontend form
-└── static/
-    └── style.css         # Optional custom styling
+
 ```
 
 ---
