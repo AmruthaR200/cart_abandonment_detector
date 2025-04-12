@@ -36,3 +36,28 @@ To run the project locally, follow these steps:
 ```bash
 git clone https://github.com/your-username/cart-abandonment-detector.git
 cd cart-abandonment-detector
+
+### Step 2: Install Required Libraries
+```bash
+pip install Flask
+pip install numpy
+pip install pandas
+pip install scikit-learn
+pip install matplotlib
+
+### Step 3: verify installation(optional)
+```bash
+python -c "import flask, numpy, pandas, sklearn, matplotlib; print('Libraries installed successfully!')"
+
+ ### Step 4:Run Model Training Script First
+```bash
+python train_model.py
+
+### Step 5:Start Flask App to Serve Predictions
+```bash
+python app.py
+
+This should start your Flask server. Open your browser and go to:
+```bash
+http://127.0.0.1:5000/
+
