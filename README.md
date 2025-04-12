@@ -34,7 +34,7 @@ To run the project locally, follow these steps:
 ## 📁 Step 1: Clone the Repository
 
 ```bash
-https://github.com/AmruthaR200/cart_abandonment_detector.git
+git clone https://github.com/AmruthaR200/cart_abandonment_detector.git
 cd cart-abandonment-detector
 ```
 
