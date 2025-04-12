@@ -31,33 +31,136 @@ This project predicts cart abandonment for an e-commerce platform using machine 
 
 To run the project locally, follow these steps:
 
-### Step 1: Clone the repository
+## 📁 Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/cart-abandonment-detector.git
 cd cart-abandonment-detector
+```
 
-### Step 2: Install Required Libraries
+---
+
+## 📦 Step 2: Install Required Libraries
+
 ```bash
 pip install Flask
 pip install numpy
 pip install pandas
 pip install scikit-learn
 pip install matplotlib
+```
 
-### Step 3: verify installation(optional)
+---
+
+## ✅ Step 3: Verify Installation (Optional)
+
 ```bash
 python -c "import flask, numpy, pandas, sklearn, matplotlib; print('Libraries installed successfully!')"
+```
 
- ### Step 4:Run Model Training Script First
+---
+
+## 🧠 Step 4: Train the Machine Learning Model
+
 ```bash
 python train_model.py
+```
 
-### Step 5:Start Flask App to Serve Predictions
+> This generates and saves a trained `model.pkl` using **Random Forest Classifier**.
+
+---
+
+## 🚀 Step 5: Start the Flask App
+
 ```bash
 python app.py
+```
 
-This should start your Flask server. Open your browser and go to:
+Then open your browser and go to:
+
 ```bash
 http://127.0.0.1:5000/
+```
+
+---
+
+## 🧪 Step 6: Try Sample Input
+
+You’ll see a form with the following fields:
+
+- 🕒 **Time on Site:** `4.2`
+- 📄 **Pages Viewed:** `10`
+- 💰 **Cart Value:** `180.0`
+
+Click the **Predict** button.
+
+---
+
+### 🟢 Output Example:
+
+```bash
+✅ User is NOT likely to abandon the cart.
+```
+
+---
+
+### 🔴 Output Example:
+
+```bash
+❌ User is LIKELY to abandon the cart.
+```
+
+---
+
+## 🗂 Project Structure
+
+```bash
+cart-abandonment-detector/
+├── train_model.py        # Trains the Random Forest classifier
+├── app.py                # Flask backend server
+├── model.pkl             # Saved trained model
+├── templates/
+│   └── index.html        # Frontend form
+└── static/
+    └── style.css         # Optional custom styling
+```
+
+---
+
+## ⚙️ Model Details
+
+- 🎯 **Algorithm Used:** Random Forest Classifier  
+- 📊 **Target Variable:** `abandoned` (1 = abandoned, 0 = completed)  
+- ✅ **Evaluation Metrics:** Accuracy, Precision, Recall, Confusion Matrix  
+- 📄 **Data:** 1,000 synthetic user sessions
+
+---
+
+## 📌 Key Features Considered
+
+- **Time on Site** (in minutes)  
+- **Pages Viewed** (per session)  
+- **Cart Value** (in dollars)
+
+---
+
+## 🌱 Future Scope
+
+- Add features like device type, time of day, referral source  
+- Integrate real-time session tracking  
+- Use Streamlit for advanced UI  
+- Add visual dashboards for business insights
+
+---
+
+## 👩‍💻 Authors
+
+- 💡 Amrutha and Team  
+
+---
+
+## 📄 License
+
+This project is for educational/demo purposes only.
+
 
